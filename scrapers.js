@@ -13,34 +13,32 @@ const scrapeJob = async (url) => {
   const page = await browser.newPage();
   await page.goto(url);
 
-  for (let index = 4; index < 20; index++) {
-    const rawProp = await scrapeProperty(
-      page,
-      `/html/body/div[4]/div/div/div/div[11]/main/div/div[1]/div[2]/article/div[4]/div[1]/div[1]/div[${index}]/div[1]/div/div[2]/p[1]/a
-		`,
-      "href"
-    );
-    console.log(rawProp);
-  }
-
-  //   const Salary = await scrapeProperty(
+  // for (let index = 4; index < 20; index++) {
+  //   const rawProp = await scrapeProperty(
   //     page,
-  //     "/html/body/div[4]/div/div/div/div/div/div/div/div[1]/article[2]/div[9]/main/div/div/div[1]/div[4]/div/div[1]/div/div[2]"
+  //     `/html/body/div[4]/div/div/div/div[11]/main/div/div[1]/div[2]/article/div[4]/div[1]/div[1]/div[${index}]/div[1]/div/div[2]/p[1]/a
+  // 	`,
+  //     "href"
   //   );
+  //   console.log(rawProp);
+  // }
 
-  //   const additionalPay = await scrapeProperty(
-  //     page,
-  //     "/html/body/div[4]/div/div/div/div/div/div/div/div[1]/article[2]/div[9]/main/div/div/div[1]/div[4]/div/div[3]/div/div[2]"
-  //   );
+  const Salary = await scrapeProperty(
+    page,
+    "/html/body/div[4]/div/div/div/div/div/div/div/div[1]/article[2]/div[9]/main/div/div/div[1]/div[4]/div/div[1]/div/div[2]"
+  );
 
-  //   const range = await scrapeProperty(
-  //     page,
-  //     "/html/body/div[4]/div/div/div/div/div/div/div/div[1]/article[2]/div[9]/main/div/div/div[1]/div[4]/div/div[1]/div/div[3]/div[2]"
-  //   );
-  //   const range2 = range.split("₹").join("-").slice(1);
+  const additionalPay = await scrapeProperty(
+    page,
+    "/html/body/div[4]/div/div/div/div/div/div/div/div[1]/article[2]/div[9]/main/div/div/div[1]/div[4]/div/div[3]/div/div[2]"
+  );
 
-  //   console.log({ rawSalary, rawBasePay });
-  //   console.log({ Salary, additionalPay, range2 });
+  const range = await scrapeProperty(
+    page,
+    "/html/body/div[4]/div/div/div/div/div/div/div/div[1]/article[2]/div[9]/main/div/div/div[1]/div[4]/div/div[1]/div/div[3]/div[2]"
+  );
+  const range2 = range.split("₹").join("-").slice(1);
+
   browser.close();
 };
 
